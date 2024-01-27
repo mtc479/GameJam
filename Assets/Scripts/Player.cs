@@ -64,15 +64,12 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown("k"))
                 attacking = true;
-
         }
         if (strumming)
         {
             miniGame = true;
             Strum();
         }
-            
-
     }
 
     void Parry()
@@ -145,9 +142,6 @@ public class Player : MonoBehaviour
             pos.y += velocity.y * Time.deltaTime;
 
             velocity.y -= grav * Time.deltaTime;
-
-
-
         }
 
         if (velocity.y <= 0)
@@ -200,11 +194,10 @@ public class Player : MonoBehaviour
         RaycastHit2D wallTop = Physics2D.Raycast(originTop, new Vector2(direction, 0), velocity.x * Time.deltaTime, wallMask);
         RaycastHit2D wallMiddle = Physics2D.Raycast(originMiddle, new Vector2(direction, 0), velocity.x * Time.deltaTime, wallMask);
         RaycastHit2D wallBottom = Physics2D.Raycast(originBottom, new Vector2(direction, 0), velocity.x * Time.deltaTime, wallMask);
-
-        if (wallTop.collider != null || wallMiddle.collider != null || wallBottom.collider != null)
-        {
-            pos.x -= velocity.x * Time.deltaTime * direction;
-        }
+            if (wallTop.collider != null || wallMiddle.collider != null || wallBottom.collider != null)
+            {
+                pos.x -= velocity.x * Time.deltaTime * direction;
+            }
         return pos;
     }
 
@@ -219,37 +212,37 @@ public class Player : MonoBehaviour
         RaycastHit2D floorMiddle = Physics2D.Raycast(originMiddle, Vector2.down, velocity.y * Time.deltaTime, floorMask);
         RaycastHit2D floorRight = Physics2D.Raycast(originlRight, Vector2.down, velocity.y * Time.deltaTime, floorMask);
 
-        if (floorLeft.collider != null || floorMiddle.collider != null || floorRight.collider != null)
-        {
-            RaycastHit2D hitRay = floorRight;
-
-            if (floorLeft)
+            if (floorLeft.collider != null || floorMiddle.collider != null || floorRight.collider != null)
             {
-                hitRay = floorLeft;
+                RaycastHit2D hitRay = floorRight;
+
+                if (floorLeft)
+                {
+                    hitRay = floorLeft;
+                }
+                else if (floorMiddle)
+                {
+                    hitRay = floorMiddle;
+                }
+                else if (floorRight)
+                {
+                    hitRay = floorRight;
+                }
+
+                if (hitRay.collider.tag == "Enemy")
+                {
+
+                    //add points
+                }
+
+                playerState = PlayerState.idle;
+
+                grounded = true;
+
+                velocity.y = 0;
+
+                pos.y = hitRay.collider.bounds.center.y + hitRay.collider.bounds.size.y / 2 + 1;
             }
-            else if (floorMiddle)
-            {
-                hitRay = floorMiddle;
-            }
-            else if (floorRight)
-            {
-                hitRay = floorRight;
-            }
-
-            if (hitRay.collider.tag == "Enemy")
-            {
-
-                //add points
-            }
-
-            playerState = PlayerState.idle;
-
-            grounded = true;
-
-            velocity.y = 0;
-
-            pos.y = hitRay.collider.bounds.center.y + hitRay.collider.bounds.size.y / 2 + 1;
-        }
         else if (playerState != PlayerState.jumping) Fall();
         return pos;
     }
@@ -264,27 +257,27 @@ public class Player : MonoBehaviour
         RaycastHit2D ceilMiddle = Physics2D.Raycast(originMiddle, Vector2.up, velocity.y * Time.deltaTime, floorMask);
         RaycastHit2D ceilRight = Physics2D.Raycast(originlRight, Vector2.up, velocity.y * Time.deltaTime, floorMask);
 
-        if (ceilLeft.collider != null || ceilMiddle.collider != null || ceilRight.collider != null)
-        {
-            RaycastHit2D hitRay = ceilRight;
-
-            if (ceilLeft)
+            if (ceilLeft.collider != null || ceilMiddle.collider != null || ceilRight.collider != null)
             {
-                hitRay = ceilLeft;
-            }
-            else if (ceilMiddle)
-            {
-                hitRay = ceilMiddle;
-            }
-            else if (ceilRight)
-            {
-                hitRay = ceilRight;
-            }
+                RaycastHit2D hitRay = ceilRight;
 
-            pos.y = hitRay.collider.bounds.center.y - hitRay.collider.bounds.size.y / 2 - 1;
+                if (ceilLeft)
+                {
+                    hitRay = ceilLeft;
+                }
+                else if (ceilMiddle)
+                {
+                    hitRay = ceilMiddle;
+                }
+                else if (ceilRight)
+                {
+                    hitRay = ceilRight;
+                }
 
-            Fall();
-        }
+                pos.y = hitRay.collider.bounds.center.y - hitRay.collider.bounds.size.y / 2 - 1;
+
+                Fall();
+            }
         return pos;
     }
 
