@@ -21,7 +21,6 @@ public class BeatTrackerScript : MonoBehaviour
 
     public void nextBeat()
     {
-        print("beat");
         if(currentSprite < images.Length)
         {
             theSR.sprite = images[currentSprite];

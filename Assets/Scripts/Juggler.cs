@@ -31,7 +31,6 @@ public class Juggler : MonoBehaviour
             // throwing
             if (Vector3.Distance(transform.position, Player.instance.transform.position) < shootRange)
             {
-                print("bang");
                 fireCounter -= Time.deltaTime;
                 if (fireCounter <= 0)
                 {
