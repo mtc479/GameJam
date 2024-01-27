@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
             attackDamage = 10;
 
         if(moveSpeed == 0) 
-            moveSpeed = 3;
+            moveSpeed = 10;
 
         if (strumming == true)
             strumming = false;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
             miniGame = false;
 
         if(jumpForce == 0)
-            jumpForce = 5;
+            jumpForce = 15;
 
         if(move == 0) 
             move = 0;
@@ -89,6 +89,14 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.tag == "Enemy" && attacking)
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Enemy" && attacking)
         {
             Destroy(collision.gameObject);
         }
