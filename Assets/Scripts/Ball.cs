@@ -7,8 +7,9 @@ public class Ball : MonoBehaviour
     public float speed = 7.5f;
     [SerializeField] private Rigidbody2D theRB;
     [SerializeField] private Transform sprite;
-    public ScoreManager theSM;
     public Vector3 direction;
+
+    public ScoreManager theSM;
     //use if parried
     private Vector2 newDirection;
 

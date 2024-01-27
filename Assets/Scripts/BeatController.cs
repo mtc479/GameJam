@@ -9,6 +9,12 @@ public class BeatController : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Intervals[] intervals;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        audioSource.Play();
+    }
+
     // Update is called once per frame
     private void Update()
     {
