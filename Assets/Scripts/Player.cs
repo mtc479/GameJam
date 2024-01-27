@@ -229,12 +229,6 @@ public class Player : MonoBehaviour
                     hitRay = floorRight;
                 }
 
-                if (hitRay.collider.tag == "Enemy")
-                {
-
-                    //add points
-                }
-
                 playerState = PlayerState.idle;
 
                 grounded = true;
