@@ -9,7 +9,7 @@ public class OnTime : MonoBehaviour
     public bool onTime = false;
     public bool slow = false;
     [SerializeField] private ScoreManager theSM;
-    private int quarter = 1;
+    public bool minigame = false;
     public enum TimeState { onTime, late, offTime, early}
     TimeState beatTime = TimeState.onTime;
 
@@ -67,18 +67,6 @@ public class OnTime : MonoBehaviour
                 print("on");
                 break;
 
-                //StartCoroutine(Window());
         }
     }
-
-    //IEnumerator Window()
-    //{
-    //    yield return new WaitForSeconds(0.200f);
-    //    onTime = true;
-    //    yield return new WaitForSeconds(0.135f);
-    //    onTime = false;
-    //    slow = true;
-    //    yield return new WaitForSeconds(0.135f);
-    //    slow = false;
-    //}
 }
