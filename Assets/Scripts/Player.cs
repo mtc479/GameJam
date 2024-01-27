@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public static Player instance;
 
+    private bool attacking;
     private float move;
 
 
@@ -38,6 +40,9 @@ public class Player : MonoBehaviour
 
         if(move == 0) 
             move = 0;
+
+        if(attacking == true)
+            attacking = false;
     }
 
     void Update()
@@ -47,7 +52,7 @@ public class Player : MonoBehaviour
         if (!miniGame)
         {
             if (Input.GetKeyDown("k"))
-                Attack();
+                attacking = true;
             var movement = Input.GetAxis("Horizontal");
             transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * moveSpeed;
 
@@ -57,8 +62,13 @@ public class Player : MonoBehaviour
             }
 
         }
-        if (strumming) 
+        if (strumming)
+        {
+            miniGame = true;
             Strum();
+        }
+            
+            
 
     }
 
@@ -67,24 +77,34 @@ public class Player : MonoBehaviour
 
     }
 
-    void Attack()
-    {
-        Debug.Log("Attack!");
-    }
-
     void Strum()
     {
-
-        if(!miniGame)
+        Debug.Log("Mini Game running");
+        if (Input.GetKeyDown("j"))
+            miniGame = false;
+        if (!miniGame)
             strumming = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Enemy" && attacking)
+        {
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Bard")
-        {
-            if (Input.GetKeyDown("k"))
-                strumming = true;
-        }
+        if (collision.tag == "Bard" && Input.GetKeyDown("k"))
+            strumming = true;
+
+            
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Bard")
+            strumming = false;
     }
 }
