@@ -43,12 +43,27 @@ public class Player : MonoBehaviour
         if(attackDamage == 0)
             attackDamage = 10;
 
+<<<<<<< HEAD
+=======
+        if(moveSpeed == 0) 
+            moveSpeed = 3;
+
+>>>>>>> parent of efd1a6b (Merge branch 'main' of https://github.com/mtc479/GameJam)
         if (strumming == true)
             strumming = false;
 
         if (miniGame == true)
             miniGame = false;
 
+<<<<<<< HEAD
+=======
+        if(jumpForce == 0)
+            jumpForce = 5;
+
+        if(move == 0) 
+            move = 0;
+
+>>>>>>> parent of efd1a6b (Merge branch 'main' of https://github.com/mtc479/GameJam)
         if(attacking == true)
             attacking = false;
 
@@ -94,7 +109,11 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "KillZone")
         {
+<<<<<<< HEAD
             SceneManager.LoadScene("GameOver");
+=======
+            Destroy(collision.gameObject);
+>>>>>>> parent of efd1a6b (Merge branch 'main' of https://github.com/mtc479/GameJam)
         }
     }
 
