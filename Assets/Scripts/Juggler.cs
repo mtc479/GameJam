@@ -10,6 +10,7 @@ public class Juggler : MonoBehaviour
     public Animator theAnim;
     public int health = 150;
     public GameObject enemyDamaged;
+    public GameObject player;
 
     public GameObject ball;
     public Transform firePoint;

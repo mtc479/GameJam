@@ -19,11 +19,6 @@ public class Player : MonoBehaviour
     private float move;
 
 
-    private void Awake()
-    {
-        instance = this;
-    }
-
     void Start()
     {
         if(attackDamage == 0)
@@ -40,6 +35,9 @@ public class Player : MonoBehaviour
 
         if(jumpForce == 0)
             jumpForce = 5;
+
+        if(move == 0) 
+            move = 0;
     }
 
     void Update()
