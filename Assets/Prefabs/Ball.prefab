@@ -102,6 +102,8 @@ MonoBehaviour:
   speed: 7.5
   theRB: {fileID: 3208735010622015485}
   sprite: {fileID: 175615248658409580}
+  theSM: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
 --- !u!58 &1101793698202953461
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

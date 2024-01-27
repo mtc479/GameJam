@@ -8,15 +8,13 @@ public class Ball : MonoBehaviour
     [SerializeField] private Rigidbody2D theRB;
     [SerializeField] private Transform sprite;
     public ScoreManager theSM;
-    private Vector3 direction;
+    public Vector3 direction;
     //use if parried
     private Vector2 newDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        direction = Player.instance.transform.position - transform.position;
-        direction.Normalize();
         transform.up = direction;
 
     }
