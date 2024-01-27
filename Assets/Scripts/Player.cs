@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public GameObject player;
     public Rigidbody2D rb;
     public static Player instance;
+    [SerializeField] private OnTime theOT;
 
     private bool attacking;
     private float move;

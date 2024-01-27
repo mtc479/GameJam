@@ -1078,6 +1078,7 @@ GameObject:
   - component: {fileID: 1097995026}
   - component: {fileID: 1097995025}
   - component: {fileID: 1097995024}
+  - component: {fileID: 1097995027}
   - component: {fileID: 1097995023}
   m_Layer: 6
   m_Name: PlayerHolder
@@ -1173,6 +1174,7 @@ MonoBehaviour:
   miniGame: 0
   player: {fileID: 1097995021}
   rb: {fileID: 1097995025}
+  theOT: {fileID: 0}
 --- !u!50 &1097995025
 Rigidbody2D:
   serializedVersion: 4
@@ -1245,6 +1247,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1097995027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097995021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211007dcd0e85d34b840a9c6bc951725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTime: 0
+  slow: 0
+  theSM: {fileID: 2022731693}
 --- !u!1 &1172277378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1418,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 42720e3623d64724da541a2a5bf1ce59, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 32c21316074b5564eaebc856685201ce, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1499,7 +1516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109dcab4b95caf143a9905f333caae87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 132
+  bpm: 82
   audioSource: {fileID: 1527258074}
   intervals:
   - steps: 1
@@ -1525,6 +1542,22 @@ MonoBehaviour:
         - m_Target: {fileID: 1547552673}
           m_TargetAssemblyTypeName: Juggler, Assembly-CSharp
           m_MethodName: CountDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - steps: 4
+    trigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1097995027}
+          m_TargetAssemblyTypeName: OnTime, Assembly-CSharp
+          m_MethodName: OpenWindow
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
