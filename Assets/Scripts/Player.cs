@@ -22,14 +22,14 @@ public class Player : MonoBehaviour
 
     private bool attacking;
 
-    private bool walk, walk_left, walk_right, jump;
+    private bool walk, walk_left, walk_right, jump, attack;
 
     public enum PlayerState
     {
         jumping,
         idle,
         walking,
-        strumming
+        attack
     }
 
     public static PlayerState playerState = PlayerState.idle;
@@ -130,6 +130,11 @@ public class Player : MonoBehaviour
             pos = CheckWallRays(pos, scale.x);
         }
 
+        if (attack)
+        {
+
+        }
+
         if (jump && playerState != PlayerState.jumping)
         {
             playerState = PlayerState.jumping;
@@ -178,11 +183,13 @@ public class Player : MonoBehaviour
         bool input_left = Input.GetKey(KeyCode.LeftArrow);
         bool input_right = Input.GetKey(KeyCode.RightArrow);
         bool input_space = Input.GetKeyDown(KeyCode.Space);
+        bool input_k = Input.GetKeyDown(KeyCode.K);
 
         walk = input_left || input_right;
         walk_left = input_left && !walk_right;
         walk_right = !input_left && input_right;
         jump = input_space;
+        attack = input_k;
     }
 
     Vector3 CheckWallRays(Vector3 pos, float direction)
