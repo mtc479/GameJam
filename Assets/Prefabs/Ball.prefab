@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7.5
   theRB: {fileID: 3208735010622015485}
-  sprite: {fileID: 0}
+  sprite: {fileID: 175615248658409580}
 --- !u!58 &1101793698202953461
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
