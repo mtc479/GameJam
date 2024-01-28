@@ -7,6 +7,8 @@ public class DrawBridge : MonoBehaviour
     [SerializeField] private GameObject bridgeUp;
     [SerializeField] private GameObject bridgeDown;
 
+    [SerializeField] private GameObject win;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,7 @@ public class DrawBridge : MonoBehaviour
 
         if (other.tag == "Player")
         {
-
+            win.gameObject.SetActive(true);
         }
     }
 
