@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public bool miniGame;
 
     public Transform[] respawnPoints;
-    private int respawnDestination = 0;
+    private int respawnDestination;
 
     public static Player instance;
 
@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
     private GameObject hitSquare;
     [SerializeField]
     private GameObject playerObject;
+
+    public CameraFollow cam;
 
     public enum PlayerState
     {
@@ -75,6 +77,8 @@ public class Player : MonoBehaviour
         if(attacking == true)
             attacking = false;
 
+        respawnDestination = 0;
+
         Fall();
 
         theSM = theOT.theSM;
@@ -84,7 +88,7 @@ public class Player : MonoBehaviour
     {
         CheckPlayerInput();
         UpdatePlayerPos();
-        UpdateAnimState();
+        //UpdateAnimState();
         //if (KBCooldown >= 0)
         //{
         //    KBCooldown -= Time.deltaTime;
@@ -108,11 +112,36 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "KillZone")
         {
-            this.transform.position = respawnPoints[respawnDestination].position;
+            this.transform.position = respawnPoints[respawnDestination-1].position;
         }
 
-        if (collision.tag == "spawn" && respawnDestination > respawnPoints.Length)
-            respawnDestination++;
+        if (collision.tag == "spawn" && respawnDestination == 0)
+        {
+            respawnDestination = 1;
+            collision.gameObject.SetActive(false);
+        }
+        else if (collision.tag == "spawn" && respawnDestination == 1)
+        {
+            respawnDestination = 2;
+            collision.gameObject.SetActive(false);
+        }
+        else if (collision.tag == "spawn" && respawnDestination == 2)
+        {
+            respawnDestination = 3;
+            collision.gameObject.SetActive(false);
+        }
+        else if (collision.tag == "spawn" && respawnDestination == 3)
+        {
+            respawnDestination = 4;
+            collision.gameObject.SetActive(false);
+        }
+
+        if (collision.tag == "levelend")
+        {
+            cam.LevelEnd(true);
+            collision.gameObject.SetActive(false);
+        }
+
     }
 
     void CheckAttack(Vector3 pos, float scale)
@@ -246,7 +275,7 @@ public class Player : MonoBehaviour
 
     void CheckEnemyRays(Vector3 pos, float direction)
     {
-        Vector2 enemyVec = new Vector2(pos.x + direction * 1f, pos.y);
+        Vector2 enemyVec = new Vector2(pos.x + direction * 1.5f, pos.y);
 
         RaycastHit2D enemyRay = Physics2D.Raycast(enemyVec, new Vector2(direction, 0), velocity.x * Time.deltaTime, enemyMask);
         if (enemyRay.collider != null)
