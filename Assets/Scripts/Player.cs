@@ -251,6 +251,7 @@ public class Player : MonoBehaviour
         RaycastHit2D enemyRay = Physics2D.Raycast(enemyVec, new Vector2(direction, 0), velocity.x * Time.deltaTime, enemyMask);
         if (enemyRay.collider != null)
         {
+            // For Enemies
             if (enemyRay.collider.tag == "Enemy")
             {
                 Debug.Log("Hit enemy");
@@ -260,7 +261,16 @@ public class Player : MonoBehaviour
                     Destroy(enemyRay.collider.gameObject);
                 }
 
-                
+            }
+
+            // For Birds
+            if (enemyRay.collider.tag == "Bird")
+            {
+                Debug.Log("Hit bird");
+
+                enemyRay.collider.gameObject.GetComponent<BirdPunt>().isrunning = true;
+
+
             }
         }
     }
