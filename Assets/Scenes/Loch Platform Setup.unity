@@ -413,6 +413,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 2.2331161
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 2.3950684
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.03660202
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5124916
+      objectReference: {fileID: 0}
     - target: {fileID: 4443090824838821150, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
       propertyPath: m_Name
       value: Jester (2)
@@ -437,6 +453,22 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1808223773}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9227066
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0174675
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.8363533
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.25873375
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -752,6 +784,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0785828
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 2.370664
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.048812866
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5002893
+      objectReference: {fileID: 0}
     - target: {fileID: 4443090824838821150, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
       propertyPath: m_Name
       value: Jester (4)
@@ -776,6 +824,22 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1876294241}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 1.047226
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1751862
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.898613
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.33759308
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4574,6 +4638,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 2.1924438
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 2.4113371
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.048812866
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.52062595
+      objectReference: {fileID: 0}
     - target: {fileID: 4443090824838821150, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
       propertyPath: m_Name
       value: Jester (3)
@@ -4598,6 +4678,22 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1926795705}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 1.04953
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 1.129591
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.899765
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3147955
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4651,6 +4747,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 2.257515
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 2.4113362
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.024406433
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5206249
+      objectReference: {fileID: 0}
     - target: {fileID: 4443090824838821150, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
       propertyPath: m_Name
       value: Jester (1)
@@ -4675,6 +4787,22 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 561037715}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0228043
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2239944
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.88640213
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3619973
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5355,6 +5483,18 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 752555018543015308, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 752555018543015308, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 752555018543015308, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 752555018543015308, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
       propertyPath: m_LocalPosition.x
       value: 509.41
       objectReference: {fileID: 0}
@@ -5394,6 +5534,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 752555018543015308, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 2.1964417
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 2.4155135
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.016342163
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.52271414
+      objectReference: {fileID: 0}
     - target: {fileID: 4443090824838821150, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
       propertyPath: m_Name
       value: Jester (6)
@@ -5418,6 +5578,22 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1953590407}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1158142
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2595688
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.85121155
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.37978452
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9513,6 +9689,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 2.200592
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 2.4520113
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.052871704
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536199360144256974, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.54096305
+      objectReference: {fileID: 0}
     - target: {fileID: 4443090824838821150, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
       propertyPath: m_Name
       value: Jester (5)
@@ -9537,6 +9729,22 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1724050772}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0878906
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2484007
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.9189453
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600244011784611227, guid: cdcf9749a1fe1ad4583c6b92bb23fc94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.37420034
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
