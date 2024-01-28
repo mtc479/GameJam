@@ -57,6 +57,7 @@ public class BirdPunt : MonoBehaviour
             updatePos(Time.deltaTime);
         }
         transform.position = pos;
+        .
 
     }
 }
