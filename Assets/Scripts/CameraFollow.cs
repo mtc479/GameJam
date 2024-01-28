@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
     private Vector3 smoothDampVelocity = Vector3.zero;
 
     private bool levelEnd;
-    private int moveSpeed = 5;
+    private int moveSpeed = 150;
     [SerializeField]
     private Transform levelEndPoint;
 
@@ -63,6 +63,7 @@ public class CameraFollow : MonoBehaviour
 
         if (levelEnd)
         {
+            leftBounds.gameObject.SetActive(false);
             leftBounds.transform.position = Vector2.MoveTowards(leftBounds.transform.position, levelEndPoint.position, moveSpeed * Time.deltaTime);
         }
     }

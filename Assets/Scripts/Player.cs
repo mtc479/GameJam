@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "KillZone")
         {
-            this.transform.position = respawnPoints[respawnDestination-1].position;
+            this.transform.position = respawnPoints[respawnDestination].position;
         }
 
         if (collision.tag == "spawn" && respawnDestination == 0)
@@ -128,11 +128,6 @@ public class Player : MonoBehaviour
         else if (collision.tag == "spawn" && respawnDestination == 2)
         {
             respawnDestination = 3;
-            collision.gameObject.SetActive(false);
-        }
-        else if (collision.tag == "spawn" && respawnDestination == 3)
-        {
-            respawnDestination = 4;
             collision.gameObject.SetActive(false);
         }
 
