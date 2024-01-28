@@ -9,6 +9,7 @@ TagManager:
   - KillZone
   - spawn
   - Bird
+  - levelend
   layers:
   - Default
   - TransparentFX
