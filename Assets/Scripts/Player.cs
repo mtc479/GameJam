@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
     {
         CheckPlayerInput();
         UpdatePlayerPos();
-        UpdateAnimState();
+        //UpdateAnimState();
         //if (KBCooldown >= 0)
         //{
         //    KBCooldown -= Time.deltaTime;
@@ -275,7 +275,7 @@ public class Player : MonoBehaviour
 
     void CheckEnemyRays(Vector3 pos, float direction)
     {
-        Vector2 enemyVec = new Vector2(pos.x + direction * 1f, pos.y);
+        Vector2 enemyVec = new Vector2(pos.x + direction * 1.5f, pos.y);
 
         RaycastHit2D enemyRay = Physics2D.Raycast(enemyVec, new Vector2(direction, 0), velocity.x * Time.deltaTime, enemyMask);
         if (enemyRay.collider != null)
