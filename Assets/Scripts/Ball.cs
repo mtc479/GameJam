@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
     public float speed = 7.5f;
     [SerializeField] private Rigidbody2D theRB;
     [SerializeField] private Transform sprite;
+    [SerializeField] private Collider2D theC;
     public Vector3 direction;
 
     public ScoreManager theSM;
@@ -17,7 +18,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         transform.up = direction;
-
+        theSM = (ScoreManager)FindFirstObjectByType(typeof(ScoreManager));
     }
 
     // Update is called once per frame
@@ -34,7 +35,7 @@ public class Ball : MonoBehaviour
             if (other.GetComponent<Player>() != null)
             {
                 theSM.UpdateScore(-10);
-                print("score down");
+                print("hit by ball");
             }
         }
         catch (System.Exception e) { }

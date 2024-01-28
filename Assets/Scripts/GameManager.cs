@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private BeatController theBC;
     private bool clock = true;
+    private Object template;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,12 @@ public class GameManager : MonoBehaviour
         {
             theBC.audioSource.PlayDelayed(0.4f);
             theBC.enabled = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            //theBC.audioSource.PlayDelayed(0.4f);
+            //theBC.enabled = true;
         }
 
         //if (Input.GetKeyDown(KeyCode.C))

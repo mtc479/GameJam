@@ -10,6 +10,8 @@ public class OnTime : MonoBehaviour
     public bool slow = false;
     [SerializeField] private ScoreManager theSM;
     public bool minigame = false;
+    private bool koolDown = false;
+    private int spam;
     public enum TimeState { onTime, late, offTime, early}
     TimeState beatTime = TimeState.onTime;
 
@@ -24,23 +26,32 @@ public class OnTime : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K)) 
         {
-            if (beatTime == TimeState.onTime) {
-                print("great!");
-                theSM.UpdateScore(10);
-            } else if (beatTime == TimeState.late)
+            spam++;
+            if(!koolDown)
             {
-                print("late!");
-                theSM.UpdateScore(5);
-            } else if(beatTime == TimeState.early)
-            {
-                print("early!");
-                theSM.UpdateScore(5);
+                koolDown = true;
+                if (beatTime == TimeState.onTime)
+                {
+                    print("great!");
+                    theSM.UpdateScore(10);
+                }
+                else if (beatTime == TimeState.late)
+                {
+                    print("late!");
+                    theSM.UpdateScore(5);
+                }
+                else if (beatTime == TimeState.early)
+                {
+                    print("early!");
+                    theSM.UpdateScore(5);
+                }
+                else if (beatTime == TimeState.offTime)
+                {
+                    print("miss!");
+                    theSM.UpdateScore(-10);
+                }
             }
-            else if (beatTime == TimeState.offTime)
-            {
-                print("miss!");
-                theSM.UpdateScore(-10);
-            }
+            
 
         };
     }
@@ -52,19 +63,21 @@ public class OnTime : MonoBehaviour
         {
             case TimeState.onTime:
                 beatTime = TimeState.late;
-                print("late");
                 break;
             case TimeState.late:
                 beatTime = TimeState.offTime;
-                print("off");
                 break;
             case TimeState.offTime:
                 beatTime = TimeState.early;
-                print("early");
                 break;
             case TimeState.early:
-                beatTime = TimeState.onTime;
-                print("on");
+                koolDown = false;
+                beatTime = TimeState.onTime;                
+                if(spam > 3)
+                {
+                    theSM.UpdateScore(-100);
+                }
+                spam = 0;
                 break;
 
         }

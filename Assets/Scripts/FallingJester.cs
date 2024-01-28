@@ -9,6 +9,11 @@ public class DamagePlayer : MonoBehaviour
     [SerializeField] private Transform theT;
     [SerializeField] private Collider2D theC;
 
+    private void Start()
+    {
+        theSM = (ScoreManager)FindFirstObjectByType(typeof(ScoreManager));
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         try

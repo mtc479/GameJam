@@ -54,7 +54,7 @@ public class Juggler : MonoBehaviour
 
     public void CountDown()
     {
-        if (fireCounter != 7)
+        if (fireCounter != 3)
         {
             fireCounter++;
         }
