@@ -9,7 +9,6 @@ public class Juggler : MonoBehaviour
     public SpriteRenderer theSR;
     public Animator theAnim;
     public int health = 1;
-    public GameObject enemyDamaged;
     public GameObject player;
 
     public Ball ball;
@@ -64,17 +63,6 @@ public class Juggler : MonoBehaviour
             fireCounter = 0;
         }
         
-    }
-
-    public void DamageEnemy()
-    {
-        health -= 1;
-        Instantiate(enemyDamaged, transform.position, transform.rotation);
-
-        if (health <= 0)
-        {
-            theAnim.SetBool("isDead", true);
-        }
     }
 
 

@@ -83,12 +83,11 @@ MonoBehaviour:
   theSR: {fileID: 1838075602235096741}
   theAnim: {fileID: 0}
   health: 1
-  enemyDamaged: {fileID: 0}
-  player: {fileID: 8182882941337253704, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
+  player: {fileID: 0}
   ball: {fileID: 2445863407306810038, guid: 373883f4c83e80949bdc84ef7f38af8b, type: 3}
   firePoint: {fileID: 3138889020453261976}
   fireRate: 3
-  shootRange: 20
+  shootRange: 30
 --- !u!50 &721068925262851459
 Rigidbody2D:
   serializedVersion: 4
