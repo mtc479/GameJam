@@ -9,6 +9,10 @@ public class MenuScript : MonoBehaviour
     [SerializeField] GameObject Intro1;
     [SerializeField] GameObject Intro2;
     [SerializeField] GameObject Intro3;
+
+    [SerializeField] GameObject Tuto;
+    [SerializeField] GameObject Tuto1;
+
     [SerializeField] GameObject Credits;
     private enum MenuState { noIntro, intro, intro2, intro3 }
     MenuState state;
@@ -55,7 +59,7 @@ public class MenuScript : MonoBehaviour
     public void OnRun()
     {
 
-        //SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
     public void OnBR()
@@ -68,6 +72,11 @@ public class MenuScript : MonoBehaviour
         Application.Quit();
     }
 
+    public void OnTutorial()
+    {
+        Tuto.gameObject.SetActive(true);
+        Tuto1.GetComponent<TextScript>().Write();
+    }
     public void OnCredits()
     {
         SceneManager.LoadScene(2, LoadSceneMode.Single);
@@ -75,6 +84,6 @@ public class MenuScript : MonoBehaviour
 
     public void OnBack()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        Tuto.gameObject.SetActive(false); 
     }
 }
