@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameState state = GameState.SideScroll;
     [SerializeField] private Player player;
     [SerializeField] private BeatController theBC;
-    private bool clock = true;
+    private bool started = false;
     private Object template;
     // Start is called before the first frame update
     void Start()
@@ -21,17 +21,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.anyKeyDown && !started)
         {
             theBC.audioSource.PlayDelayed(0.4f);
             theBC.enabled = true;
+            started = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            //theBC.audioSource.PlayDelayed(0.4f);
-            //theBC.enabled = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    theBC.audioSource.PlayDelayed(0.4f);
+        //    theBC.enabled = true;
+        //}
 
         //if (Input.GetKeyDown(KeyCode.C))
         //{
