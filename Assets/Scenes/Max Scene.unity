@@ -226,6 +226,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &168471659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6549757203798705058, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
+  m_PrefabInstance: {fileID: 669498328985659088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &406019421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,6 +1462,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1097995021}
+          m_TargetAssemblyTypeName: Juggler, Assembly-CSharp
+          m_MethodName: CountDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - steps: 4
     trigger:
       m_PersistentCalls:
@@ -1833,33 +1850,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3058972970860732564, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
-      propertyPath: jumpVelocity
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3058972970860732564, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
-      propertyPath: wallMask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 3058972970860732564, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
-      propertyPath: enemyMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 3058972970860732564, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
-      propertyPath: floorMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981765968353672213, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: hitSquare
+      value: 
+      objectReference: {fileID: 168471659}
+    - target: {fileID: 6549757203798705058, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7679572674704990971, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
       propertyPath: theSM
       value: 
       objectReference: {fileID: 2022731693}
-    - target: {fileID: 7679572674704990971, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8096425669537136130, guid: 6ec94ac10eff3c64d9a1cc168bb144f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

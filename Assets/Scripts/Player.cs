@@ -24,7 +24,10 @@ public class Player : MonoBehaviour
 
     private bool attacking;
 
-    private bool walk, walk_left, walk_right, jump, attack, attack_left, attack_right;
+    private bool walk, walk_left, walk_right, jump, attack;
+
+    [SerializeField]
+    private GameObject hitSquare;
 
     public enum PlayerState
     {
@@ -61,61 +64,30 @@ public class Player : MonoBehaviour
         CheckPlayerInput();
         UpdatePlayerPos();
         UpdateAnimState();
-        
-        if (!miniGame)
-        {
-            if (Input.GetKeyDown("k"))
-                attacking = true;
-        }
-        if (strumming)
-        {
-            miniGame = true;
-            Strum();
-        }
     }
 
-    void Parry()
-    {
-
-    }
-
-    void Strum()
-    {
-        Debug.Log("Mini Game running");
-        if (Input.GetKeyDown("j"))
-            miniGame = false;
-        if (!miniGame)
-            strumming = false;
-    }
-
+    // Kill Player
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "KillZone")
         {
-            SceneManager.LoadScene("GameOver");
             Destroy(collision.gameObject);
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Bard" && Input.GetKeyDown("k"))
-            strumming = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Bard")
-            strumming = false;
     }
 
     void CheckAttack(Vector3 pos, float scale)
     {
         if (attack)
         {
+            hitSquare.SetActive(true);
+
+            Invoke("SetFalse", 1.0f);
+
             CheckEnemyRays(pos, scale);
         }
     }
+
+    void SetFalse() { hitSquare.SetActive(false); }
 
     void UpdatePlayerPos()
     {
