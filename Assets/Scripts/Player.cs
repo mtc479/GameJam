@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
             this.transform.position = respawnPoints[respawnDestination].position;
         }
 
-        if (collision.tag == "spawn")
+        if (collision.tag == "spawn" && respawnDestination > respawnPoints.Length)
             respawnDestination++;
     }
 
