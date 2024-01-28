@@ -26,6 +26,11 @@ public class DrawBridge : MonoBehaviour
             DrawBridgeOpen();
             Destroy(other.gameObject);
         }
+
+        if (other.tag == "Player")
+        {
+
+        }
     }
 
     private void DrawBridgeOpen()
