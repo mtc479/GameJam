@@ -85,7 +85,11 @@ MonoBehaviour:
   health: 1
   enemyDamaged: {fileID: 0}
   player: {fileID: 0}
+<<<<<<< Updated upstream
   ball: {fileID: 2445863407306810038, guid: 373883f4c83e80949bdc84ef7f38af8b, type: 3}
+=======
+  ball: {fileID: 8540774054857049140, guid: b66f0976fb1fd9b46a7614b610c510b5, type: 3}
+>>>>>>> Stashed changes
   firePoint: {fileID: 27653786972182948}
   fireRate: 3
   shootRange: 30
