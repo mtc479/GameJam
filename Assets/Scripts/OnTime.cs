@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,12 +9,13 @@ public class OnTime : MonoBehaviour
 {
     public bool onTime = false;
     public bool slow = false;
-    [SerializeField] private ScoreManager theSM;
+    [SerializeField] public ScoreManager theSM;
     public bool minigame = false;
     private bool koolDown = false;
     private int spam;
     public enum TimeState { onTime, late, offTime, early}
-    TimeState beatTime = TimeState.onTime;
+    public TimeState beatTime = TimeState.onTime;
+    private bool strum = true;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +26,10 @@ public class OnTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K)) 
+        if (Input.GetKeyDown(KeyCode.J)) 
         {
             spam++;
-            if(!koolDown)
+            if(!koolDown && strum)
             {
                 koolDown = true;
                 if (beatTime == TimeState.onTime)
@@ -56,6 +58,37 @@ public class OnTime : MonoBehaviour
         };
     }
 
+    public bool CheckTime()
+    {
+        if (beatTime == TimeState.onTime)
+        {
+            print("great!");
+            theSM.UpdateScore(10);
+            return true;
+        }
+        else if (beatTime == TimeState.late)
+        {
+            print("late!");
+            theSM.UpdateScore(5);
+            return true;
+        }
+        else if (beatTime == TimeState.early)
+        {
+            print("early!");
+            theSM.UpdateScore(5);
+            return true;
+        }
+        else if (beatTime == TimeState.offTime)
+        {
+            print("miss!");
+            theSM.UpdateScore(-10);
+            return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     public void OpenWindow()
     {
@@ -81,5 +114,9 @@ public class OnTime : MonoBehaviour
                 break;
 
         }
+    }
+    public void SwapState()
+    {
+        strum = !strum;
     }
 }

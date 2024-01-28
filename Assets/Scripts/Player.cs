@@ -41,6 +41,10 @@ public class Player : MonoBehaviour
 
     private bool grounded = false;
 
+    private bool strum = true;
+
+    private ScoreManager theSM;
+    [SerializeField] OnTime theOT;
 
     void Start()
     {
@@ -57,6 +61,8 @@ public class Player : MonoBehaviour
             attacking = false;
 
         Fall();
+
+        theSM = theOT.theSM;
     }
 
     void Update()
@@ -77,7 +83,7 @@ public class Player : MonoBehaviour
 
     void CheckAttack(Vector3 pos, float scale)
     {
-        if (attack)
+        if (attack && !strum)
         {
             hitSquare.SetActive(true);
 
@@ -180,7 +186,13 @@ public class Player : MonoBehaviour
             if (enemyRay.collider.tag == "Enemy")
             {
                 Debug.Log("Hit enemy");
-                Destroy(enemyRay.collider.gameObject);
+
+                if (theOT.CheckTime())
+                {
+                    Destroy(enemyRay.collider.gameObject);
+                }
+
+                
             }
         }
     }
@@ -281,5 +293,10 @@ public class Player : MonoBehaviour
         playerState = PlayerState.jumping;
 
         grounded = false;
+    }
+
+    public void SwapState()
+    {
+        strum = !strum;
     }
 }
