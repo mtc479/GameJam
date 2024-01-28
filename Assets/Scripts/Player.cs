@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using static UnityEditor.PlayerSettings;
 
 public class Player : MonoBehaviour
 {
@@ -84,22 +85,22 @@ public class Player : MonoBehaviour
         CheckPlayerInput();
         UpdatePlayerPos();
         UpdateAnimState();
-        if (KBCooldown >= 0)
-        {
-            KBCooldown -= Time.deltaTime;
-            if (KBCooldown == 0)
-            {
-                KBCooldown = 0;
-            }
-        }
-        if (KBCounter > 0)
-        {
-            KBCounter -= Time.deltaTime;
-            if (KBCounter < 0)
-            {
-                KBCounter = 0;
-            }
-        }
+        //if (KBCooldown >= 0)
+        //{
+        //    KBCooldown -= Time.deltaTime;
+        //    if (KBCooldown == 0)
+        //    {
+        //        KBCooldown = 0;
+        //    }
+        //}
+        //if (KBCounter > 0)
+        //{
+        //    KBCounter -= Time.deltaTime;
+        //    if (KBCounter < 0)
+        //    {
+        //        KBCounter = 0;
+        //    }
+        //}
     }
 
     // Kill Player
@@ -133,8 +134,7 @@ public class Player : MonoBehaviour
         Vector3 pos = transform.localPosition;
         Vector3 scale = transform.localScale;
         CheckAttack(pos, scale.x);
-        if (KBCounter <= 0)
-        {
+        
             if (walk)
             {
                 if (walk_left)
@@ -152,25 +152,8 @@ public class Player : MonoBehaviour
                 }
                 pos = CheckWallRays(pos, scale.x);
             }
-        }
-        else
-        {
-            Debug.Log("kb trigger");
-            if (KnockFromRight == true)
-            {
-                velocity2 = new Vector2(-KBForce, KBForce);
-                velocity2 *= Time.deltaTime;
-                pos += new Vector3(velocity2.x, velocity2.y, pos.z);
-            }
-            if(KnockFromRight ==false)
-            {
-                velocity2 = new Vector2(KBForce, KBForce);
-                velocity2 *= Time.deltaTime;
-                pos += new Vector3(velocity2.x, velocity2.y, pos.z);
-            }
-            
-            
-        }
+        
+        
         if (jump && playerState != PlayerState.jumping)
         {
             playerState = PlayerState.jumping;
@@ -185,6 +168,24 @@ public class Player : MonoBehaviour
             velocity.y -= grav * Time.deltaTime;
         }
 
+        
+        if (KnockFromRight == true && KBCooldown > 0)
+        {
+            Debug.Log("kb trigger");
+            velocity2 = new Vector2(-KBForce, KBForce);
+            velocity2 *= Time.deltaTime;
+            pos += new Vector3(velocity2.x, velocity2.y, pos.z);
+            
+        }
+        if (KnockFromRight == false && KBCooldown > 0)
+        {
+            Debug.Log("kb trigger");
+            velocity2 = new Vector2(KBForce, KBForce);
+            velocity2 *= Time.deltaTime;
+            pos += new Vector3(velocity2.x, velocity2.y, pos.z);
+            
+        }
+
         if (velocity.y <= 0)
             pos = CheckFloorRays(pos);
 
@@ -193,6 +194,20 @@ public class Player : MonoBehaviour
 
         transform.localPosition = pos;
         transform.localScale = scale;
+
+    }
+
+    public void KnockedBackCoolDown()
+    {
+        if(KBCounter > 0)
+        {
+            KBCounter--;
+        }
+
+        if (KBCooldown > 0)
+        {
+            KBCooldown--;
+        }
     }
 
     void UpdateAnimState()
