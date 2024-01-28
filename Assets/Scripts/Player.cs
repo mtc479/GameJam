@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     public float jumpVelocity;
     public Vector2 velocity;
+    public Vector2 velocity2;
     public float grav;
     public LayerMask wallMask;
     public LayerMask floorMask;
@@ -26,6 +27,14 @@ public class Player : MonoBehaviour
 
     private bool walk, walk_left, walk_right, jump, attack;
 
+    public float KBForce;
+    public float KBCounter;
+    public float KBTotalTime;
+
+    public bool KnockFromRight;
+    public float KBCooldown;
+    public float KBmin = 0.0f;
+    
     [SerializeField]
     private GameObject hitSquare;
 
@@ -64,6 +73,22 @@ public class Player : MonoBehaviour
         CheckPlayerInput();
         UpdatePlayerPos();
         UpdateAnimState();
+        if (KBCooldown >= 0)
+        {
+            KBCooldown -= Time.deltaTime;
+            if (KBCooldown == 0)
+            {
+                KBCooldown = 0;
+            }
+        }
+        if (KBCounter > 0)
+        {
+            KBCounter -= Time.deltaTime;
+            if (KBCounter < 0)
+            {
+                KBCounter = 0;
+            }
+        }
     }
 
     // Kill Player
@@ -94,24 +119,44 @@ public class Player : MonoBehaviour
         Vector3 pos = transform.localPosition;
         Vector3 scale = transform.localScale;
         CheckAttack(pos, scale.x);
-        if (walk)
+        if (KBCounter <= 0)
         {
-            if (walk_left)
+            if (walk)
             {
-                pos.x -= velocity.x * Time.deltaTime;
+                if (walk_left)
+                {
+                    pos.x -= velocity.x * Time.deltaTime;
 
-                scale.x = -2;
+                    scale.x = -2;
+                }
+
+                if (walk_right)
+                {
+                    pos.x += velocity.x * Time.deltaTime;
+
+                    scale.x = 2;
+                }
+                pos = CheckWallRays(pos, scale.x);
             }
-
-            if (walk_right)
-            {
-                pos.x += velocity.x * Time.deltaTime;
-
-                scale.x = 2;
-            }
-            pos = CheckWallRays(pos, scale.x);
         }
-
+        else
+        {
+            Debug.Log("kb trigger");
+            if (KnockFromRight == true)
+            {
+                velocity2 = new Vector2(-KBForce, KBForce);
+                velocity2 *= Time.deltaTime;
+                pos += new Vector3(velocity2.x, velocity2.y, pos.z);
+            }
+            if(KnockFromRight ==false)
+            {
+                velocity2 = new Vector2(KBForce, KBForce);
+                velocity2 *= Time.deltaTime;
+                pos += new Vector3(velocity2.x, velocity2.y, pos.z);
+            }
+            
+            
+        }
         if (jump && playerState != PlayerState.jumping)
         {
             playerState = PlayerState.jumping;

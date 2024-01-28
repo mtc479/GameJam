@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class JesterBehaviour : MonoBehaviour
+public class JesterPatrolBehaviour : MonoBehaviour
 {
     public Transform[] patrolPoints;
     public float moveSpeed;
@@ -11,21 +12,31 @@ public class JesterBehaviour : MonoBehaviour
     public Transform playerTransform;
     public bool isChasing;
     public float chaseDistance;
+    
+    
+        
+    
+    
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 scale = transform.localScale;
 
         if (isChasing)
         {
             if (transform.position.x > playerTransform.position.x)
             {
                 transform.position += Vector3.left * (moveSpeed +2f) * Time.deltaTime;
+                scale.x *= (-1);
+                transform.localScale = scale;
             }
             
             if (transform.position.x < playerTransform.position.x)
             {
                 transform.position += Vector3.right * (moveSpeed +2f) * Time.deltaTime;
+                scale.x *= (-1);
+                transform.localScale = scale;
             }
             
         }
@@ -37,6 +48,21 @@ public class JesterBehaviour : MonoBehaviour
             }
            
             
+        }
+        if (isChasing)
+        {
+            if (transform.position.x > playerTransform.position.x)
+            {
+                scale.x = (-1);
+                transform.localScale = scale;
+            }
+
+            else if(transform.position.x < playerTransform.position.x)
+            {
+                scale.x = (1);
+                transform.localScale = scale;
+            }
+
         }
         if (Vector2.Distance(transform.position, playerTransform.position) > chaseDistance)
         {
