@@ -33,7 +33,7 @@ public class Ball : MonoBehaviour
         try
         {
             // Reduce Points
-            if (other.GetComponent<Player>() != null && !parried)
+            if (other.tag == "Player" && !parried)
             {
                 theSM.UpdateScore(-10);
                 print("hit by ball");
@@ -56,6 +56,7 @@ public class Ball : MonoBehaviour
             }
             else
             {
+                print("none of the above");
                 Destroy(gameObject);
             }
         }
