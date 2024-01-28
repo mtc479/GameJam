@@ -14,18 +14,18 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        theBC.audioSource.Stop();
-        theBC.enabled = false;
+        //theBC.audioSource.Stop();
+        //theBC.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            theBC.audioSource.PlayDelayed(0.4f);
-            theBC.enabled = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    theBC.audioSource.PlayDelayed(0.4f);
+        //    theBC.enabled = true;
+        //}
 
         if (Input.GetKeyDown(KeyCode.D))
         {
