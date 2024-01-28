@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     public bool strumming;
     public bool miniGame;
 
+    public Transform[] respawnPoints;
+    private int respawnDestination = 0;
+
     public static Player instance;
 
     private bool attacking;
@@ -28,6 +31,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameObject hitSquare;
+    [SerializeField]
+    private GameObject playerObject;
 
     public enum PlayerState
     {
@@ -77,8 +82,11 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "KillZone")
         {
-            Destroy(collision.gameObject);
+            this.transform.position = respawnPoints[respawnDestination].position;
         }
+
+        if (collision.tag == "spawn")
+            respawnDestination++;
     }
 
     void CheckAttack(Vector3 pos, float scale)

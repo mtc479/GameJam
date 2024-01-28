@@ -536,6 +536,8 @@ MonoBehaviour:
   strumming: 0
   miniGame: 0
   hitSquare: {fileID: 6549757203798705058}
+  playerObject: {fileID: 8182882941337253704}
+  theOT: {fileID: 0}
 --- !u!114 &7679572674704990971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +554,7 @@ MonoBehaviour:
   slow: 0
   theSM: {fileID: 0}
   minigame: 0
+  beatTime: 0
 --- !u!1001 &3336111010027178310
 PrefabInstance:
   m_ObjectHideFlags: 0

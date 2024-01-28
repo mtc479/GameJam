@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bard
   - Enemy
+  - KillZone
   layers:
   - Default
   - TransparentFX
