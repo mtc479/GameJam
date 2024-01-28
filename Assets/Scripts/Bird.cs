@@ -3,55 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
-public class Bird : MonoBehaviour
+public class BirdPunt : MonoBehaviour
 {
-    private Vector3 vel = new Vector3(21f, 20.40f, 0f);
-    private Vector3 accel;
-    private float mass = 2f;
-    private float vely = 0, velx = 0;
-    private bool hit = false;
+    public Transform transform;
+    public Vector2 acc;
+    public float mass;
+    public float drag;
+    public Vector2 vel;
+    public float nextposition;
+    public Vector2 pos;
+    public Vector2 grav = new Vector2(-30f, -9.8f);
+    public bool isrunning = false;
+
+
+    public void applyForces(Vector2 force)
+    {
+        // Implement Newton's second law
+        acc.y = force.y * mass;
+        acc.y += drag * vel.y / mass;
+        acc.x = force.x / mass;
+        acc.x += drag * vel.x / mass;
+    }
+    void updatePos(float deltaTime)
+    {
+
+        float nextposition = pos.y + vel.y * deltaTime + (0.5f * acc.y * deltaTime);
+        if (nextposition > 1f)
+        {
+            pos.y += vel.y * deltaTime + (0.5f * acc.y * deltaTime);
+            vel.y += acc.y * deltaTime;
+            pos.x += vel.x * deltaTime + (0.5f * acc.x * deltaTime);
+            vel.x += acc.x * deltaTime;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        pos.y = transform.position.y;
+        pos.x = transform.position.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown("g"))
         {
-            hit = true;
+            isrunning = !isrunning;
         }
-
-        if (hit)
+        if (isrunning)
         {
-            ApplyForces();
-
-            vely += transform.position.y + vel.y * Time.deltaTime + ((0.5f) * accel.y * Time.deltaTime * Time.deltaTime);
-
-            vely += accel.y * Time.deltaTime;
-
-            velx += transform.position.x + vel.x * Time.deltaTime + ((0.5f) * accel.x * Time.deltaTime * Time.deltaTime);
-
-            velx += accel.x * Time.deltaTime;
-
-            transform.position = new Vector3(velx, vely, transform.position.z);
+            applyForces(grav);
+            updatePos(Time.deltaTime);
         }
-     
-        
+        transform.position = pos;
+
     }
-
-
-
-    private void ApplyForces()
-    {
-        Vector3 force = new Vector3(0f, -9.8f, 0f);
-        accel.y = force.y * mass;
-        accel.y += -0.2f * vel.y / mass;
-        accel.x = force.x * mass;
-        accel.x += -0.2f * vel.x / mass;
-    }
-
 }

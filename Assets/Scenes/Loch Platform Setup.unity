@@ -878,6 +878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 247123854}
   - component: {fileID: 247123853}
+  - component: {fileID: 247123855}
   m_Layer: 0
   m_Name: tile_1 (1)
   m_TagString: Untagged
@@ -952,6 +953,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &247123855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247123852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d911bc9bd452a1d4ca83529ac6b3b8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 1131544406}
+  acc: {x: 0, y: 0}
+  mass: 2
+  drag: -0.2
+  vel: {x: 21, y: 20.4}
+  nextposition: 0
+  pos: {x: 64.4, y: 49.14}
+  grav: {x: -30, y: -9.8}
+  isrunning: 0
 --- !u!1 &344459109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,6 +2010,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 298545751880161580, guid: 9b1bf882f744cab478a17b8abe700539, type: 3}
   m_PrefabInstance: {fileID: 680124881}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &690019167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 690019168}
+  m_Layer: 0
+  m_Name: Better bird
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &690019168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690019167}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.192709, y: 2.9190407, z: -8.037189}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &699158767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3212,7 +3265,7 @@ Transform:
   m_GameObject: {fileID: 1131544405}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.74, y: 2.2, z: -8}
+  m_LocalPosition: {x: 96.8, y: 40.2, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3293,7 +3346,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 5942fead55135244388fe44bb18b67e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3313,7 +3366,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131544405}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3344,6 +3397,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879d4a0c877f5fc45b50e15276c547de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform: {fileID: 1131544406}
+  acc: {x: 0, y: 0}
+  mass: 2
+  drag: -0.2
+  vel: {x: 42, y: 40.8}
+  nextposition: 0
+  pos: {x: 0, y: 0}
+  grav: {x: -30, y: -9.8}
+  isrunning: 0
 --- !u!114 &1140630655 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1007971776736564187, guid: 6ed2c1e7b642f61488990b879dc81e3b, type: 3}
@@ -8303,3 +8365,4 @@ SceneRoots:
   - {fileID: 744047972}
   - {fileID: 113237072}
   - {fileID: 2088774811}
+  - {fileID: 690019168}
