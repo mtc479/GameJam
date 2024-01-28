@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     public float grav;
     public LayerMask wallMask;
     public LayerMask floorMask;
+    public LayerMask enemyMask;
 
     public int attackDamage;
     public bool strumming;
@@ -22,14 +24,14 @@ public class Player : MonoBehaviour
 
     private bool attacking;
 
-    private bool walk, walk_left, walk_right, jump, attack;
+    private bool walk, walk_left, walk_right, jump, attack, attack_left, attack_right;
 
     public enum PlayerState
     {
         jumping,
         idle,
         walking,
-        attack
+        attacking
     }
 
     public static PlayerState playerState = PlayerState.idle;
@@ -107,32 +109,35 @@ public class Player : MonoBehaviour
             strumming = false;
     }
 
+    void CheckAttack(Vector3 pos, float scale)
+    {
+        if (attack)
+        {
+            CheckEnemyRays(pos, scale);
+        }
+    }
+
     void UpdatePlayerPos()
     {
         Vector3 pos = transform.localPosition;
         Vector3 scale = transform.localScale;
-
+        CheckAttack(pos, scale.x);
         if (walk)
         {
             if (walk_left)
             {
                 pos.x -= velocity.x * Time.deltaTime;
 
-                scale.x = -1;
+                scale.x = -2;
             }
 
             if (walk_right)
             {
                 pos.x += velocity.x * Time.deltaTime;
 
-                scale.x = 1;
+                scale.x = 2;
             }
             pos = CheckWallRays(pos, scale.x);
-        }
-
-        if (attack)
-        {
-
         }
 
         if (jump && playerState != PlayerState.jumping)
@@ -180,8 +185,8 @@ public class Player : MonoBehaviour
 
     void CheckPlayerInput()
     {
-        bool input_left = Input.GetKey(KeyCode.LeftArrow);
-        bool input_right = Input.GetKey(KeyCode.RightArrow);
+        bool input_left = Input.GetKey(KeyCode.A);
+        bool input_right = Input.GetKey(KeyCode.D);
         bool input_space = Input.GetKeyDown(KeyCode.Space);
         bool input_k = Input.GetKeyDown(KeyCode.K);
 
@@ -190,8 +195,23 @@ public class Player : MonoBehaviour
         walk_right = !input_left && input_right;
         jump = input_space;
         attack = input_k;
+         
     }
 
+    void CheckEnemyRays(Vector3 pos, float direction)
+    {
+        Vector2 enemyVec = new Vector2(pos.x + direction * 1f, pos.y);
+
+        RaycastHit2D enemyRay = Physics2D.Raycast(enemyVec, new Vector2(direction, 0), velocity.x * Time.deltaTime, enemyMask);
+        if (enemyRay.collider != null)
+        {
+            if (enemyRay.collider.tag == "Enemy")
+            {
+                Debug.Log("Hit enemy");
+                Destroy(enemyRay.collider.gameObject);
+            }
+        }
+    }
     Vector3 CheckWallRays(Vector3 pos, float direction)
     {
         Vector2 originTop = new Vector2(pos.x + direction * .4f, pos.y + 1f - 0.2f);

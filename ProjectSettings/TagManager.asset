@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bard
+  - Enemy
   layers:
   - Default
   - TransparentFX

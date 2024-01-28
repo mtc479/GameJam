@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3447555984862613719}
   - component: {fileID: 8837709327839203351}
   m_Layer: 9
-  m_Name: Square
+  m_Name: Floor with wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
