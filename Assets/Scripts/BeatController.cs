@@ -6,13 +6,13 @@ using UnityEngine.Events;
 public class BeatController : MonoBehaviour
 {
     [SerializeField] private float bpm;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] public AudioSource audioSource;
     [SerializeField] private Intervals[] intervals;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource.Play();
+        
     }
 
     // Update is called once per frame
